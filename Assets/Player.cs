@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_25 : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public event System.Action OnReachedEndOfLevel;
 
@@ -22,7 +22,7 @@ public class Player_25 : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        Guard_25.OnGuardHasSpottedPlayer += Disable;
+        Guard.OnGuardHasSpottedPlayer += Disable;
     }
 
     void Update()
@@ -66,6 +66,6 @@ public class Player_25 : MonoBehaviour
 
     void OnDestroy()
     {
-        Guard_25.OnGuardHasSpottedPlayer -= Disable;
+        Guard.OnGuardHasSpottedPlayer -= Disable;
     }
 }

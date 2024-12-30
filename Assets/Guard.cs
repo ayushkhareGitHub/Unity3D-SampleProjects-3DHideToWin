@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Guard_25 : MonoBehaviour
+public class Guard : MonoBehaviour
 {
     public static event System.Action OnGuardHasSpottedPlayer;
     public Transform pathHolder;

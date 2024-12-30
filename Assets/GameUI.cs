@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameUI_25 : MonoBehaviour
+public class GameUI : MonoBehaviour
 {
     public GameObject gameLoseUI;
     public GameObject gameWinUI;
@@ -11,8 +11,8 @@ public class GameUI_25 : MonoBehaviour
 
     void Start()
     {
-        Guard_25.OnGuardHasSpottedPlayer += ShowGameLoseUI;
-        FindObjectOfType<Player_25>().OnReachedEndOfLevel += ShowGameWinUI;
+        Guard.OnGuardHasSpottedPlayer += ShowGameLoseUI;
+        FindObjectOfType<Player>().OnReachedEndOfLevel += ShowGameWinUI;
     }
 
     void Update()
@@ -40,7 +40,13 @@ public class GameUI_25 : MonoBehaviour
     {
         gameOverUI.SetActive(true);
         gameIsOver = true;
-        Guard_25.OnGuardHasSpottedPlayer -= ShowGameLoseUI;
-        FindObjectOfType<Player_25>().OnReachedEndOfLevel -= ShowGameWinUI;
+        Guard.OnGuardHasSpottedPlayer -= ShowGameLoseUI;
+        FindObjectOfType<Player>().OnReachedEndOfLevel -= ShowGameWinUI;
+    }
+
+    public void QuitGameButtonPressed()
+    {
+        Debug.Log("Quit Game/Exit Application");
+        Application.Quit();
     }
 }
